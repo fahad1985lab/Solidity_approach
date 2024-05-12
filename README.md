@@ -1,4 +1,4 @@
-This Git repository contains foure Agda codes:
+# This Git repository contains four Agda codes:
 
 1- Developing Two Models of the Solidity-style Smart Contracts.
 
