@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>guidelines</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">open</a> <a id="6" class="Keyword">import</a> <a id="13" href="constantparameters.html" class="Module">constantparameters</a>
+
+
+<a id="34" class="Keyword">module</a> <a id="41" href="guidelines.html" class="Module">guidelines</a> <a id="52" class="Symbol">(</a><a id="53" href="guidelines.html#53" class="Bound">param</a> <a id="59" class="Symbol">:</a> <a id="61" href="constantparameters.html#235" class="Record">ConstantParameters</a><a id="79" class="Symbol">)</a> <a id="81" class="Keyword">where</a>
+
+
+<a id="89" class="Comment">-- This file is guidelines for the code contained in the paper.</a>
+<a id="153" class="Comment">-- The authors:  Fahad Alhabardi and Anton Setzer</a>
+<a id="203" class="Comment">-- The title of the paper: A simulator of Solidity-style smart contracts in the theorem prover Agda</a>
+<a id="303" class="Comment">-- All files have been checked and worked</a>
+
+
+<a id="347" class="Comment">-- Sect 1 INTRODUCTION</a>
+
+<a id="371" class="Comment">-- Sect 2 RELATED WORK</a>
+
+<a id="395" class="Comment">-- Sect 3 BACKGROUND</a>
+
+<a id="417" class="Comment">--- Subsection 3.1 A brief introduction to the Agda theorem prover</a>
+
+<a id="485" class="Keyword">open</a> <a id="490" class="Keyword">import</a> <a id="497" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html" class="Module">Simple-Model.library-simple-model.basicDataStructureWithSimpleModel</a>
+<a id="565" class="Keyword">open</a> <a id="570" class="Keyword">import</a> <a id="577" href="Simple-Model.IOledger.IOledger-counter.html" class="Module">Simple-Model.IOledger.IOledger-counter</a>
+
+<a id="617" class="Comment">--- Subsection 3.2 Interface Library</a>
+<a id="654" class="Keyword">open</a> <a id="659" class="Keyword">import</a> <a id="666" href="interface.Base.html" class="Module">interface.Base</a>
+<a id="681" class="Keyword">open</a> <a id="686" class="Keyword">import</a> <a id="693" href="interface.Console.html" class="Module">interface.Console</a> 
+
+
+<a id="714" class="Comment">-- Sect 4 A SIMULATOR OF SOLIDITY-STYLE SMART CONTRACTS IN AGDA</a>
+
+<a id="779" class="Comment">--- Subsection 4.1 Simulator of the simple model</a>
+
+<a id="829" class="Comment">-- A count example</a>
+<a id="848" class="Keyword">open</a> <a id="853" class="Keyword">import</a> <a id="860" href="Simple-Model.example.examplecounter.html" class="Module">Simple-Model.example.examplecounter</a>
+
+<a id="897" class="Comment">-- Interactive program in Agda for simple simulator</a>
+<a id="949" class="Keyword">open</a> <a id="954" class="Keyword">import</a> <a id="961" href="Simple-Model.IOledger.IOledger-counter.html" class="Module">Simple-Model.IOledger.IOledger-counter</a>
+
+<a id="1001" class="Comment">-- definition of Smart Contract (SmartContract), Commands (CCommands), and respones (CResponse)</a>
+<a id="1097" class="Keyword">open</a> <a id="1102" class="Keyword">import</a> <a id="1109" href="Simple-Model.ledgerversion.Ledger-Simple-Model.html" class="Module">Simple-Model.ledgerversion.Ledger-Simple-Model</a>
+
+<a id="1157" class="Comment">-- Ledger</a>
+<a id="1167" class="Keyword">open</a> <a id="1172" class="Keyword">import</a> <a id="1179" href="Simple-Model.ledgerversion.Ledger-Simple-Model.html" class="Module">Simple-Model.ledgerversion.Ledger-Simple-Model</a>
+
+<a id="1227" class="Comment">-- library for simple model</a>
+<a id="1255" class="Keyword">open</a> <a id="1260" class="Keyword">import</a> <a id="1267" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html" class="Module">Simple-Model.library-simple-model.basicDataStructureWithSimpleModel</a>
+
+
+
+<a id="1338" class="Comment">--- Subsection 4.2 Simulator of the complex model</a>
+
+<a id="1389" class="Comment">-- A voting example</a>
+
+<a id="1410" class="Keyword">open</a> <a id="1415" class="Keyword">import</a> <a id="1422" href="Complex-Model.example.votingexample-complex.html" class="Module">Complex-Model.example.votingexample-complex</a>
+
+<a id="1467" class="Comment">-- Interactive program in Agda for complex simulator</a>
+
+<a id="1521" class="Keyword">open</a> <a id="1526" class="Keyword">import</a> <a id="1533" href="Complex-Model.IOledger.IOledger-votingexample.html" class="Module">Complex-Model.IOledger.IOledger-votingexample</a>
+
+<a id="1580" class="Comment">-- definition of Smart Contract (SmartContract), Commands (CCommands), and respones (CResponse)</a>
+<a id="1676" class="Keyword">open</a> <a id="1681" class="Keyword">import</a> <a id="1688" href="Complex-Model.ccomand.ccommands-cresponse.html" class="Module">Complex-Model.ccomand.ccommands-cresponse</a>
+
+<a id="1731" class="Comment">--Ledger</a>
+
+<a id="1741" class="Keyword">open</a> <a id="1746" class="Keyword">import</a> <a id="1753" href="Complex-Model.ledgerversion.Ledger-Complex-Model.html" class="Module">Complex-Model.ledgerversion.Ledger-Complex-Model</a>
+<a id="1802" class="Keyword">open</a> <a id="1807" class="Keyword">import</a> <a id="1814" href="Complex-Model.ledgerversion.Ledger-Complex-Model-improved-non-terminate.html" class="Module">Complex-Model.ledgerversion.Ledger-Complex-Model-improved-non-terminate</a>
+
+<a id="1887" class="Comment">-- Sect 5 CONCLUSION AND FUTURE WORK</a>
+
+
+
+
+<a id="1928" class="Comment">-- ####################################</a>
+<a id="1968" class="Comment">-- For appendix to a simulator of Solidity-style smart contracts in the theorem prover Agda</a>
+
+<a id="2061" class="Comment">-- The appendix is available at</a>
+<a id="2093" class="Comment">-- (https://github.com/fahad1985lab/A_simulator_of_Solidity-style_smart_contracts_in_the_theorem_prover_Agda/blob/main/Appendix_to_a_simulator_of_Solidity-style_smart_contracts_in_the_theorem_prover_Agda.pdf)</a>
+
+<a id="2303" class="Comment">-- Git repository</a>
+<a id="2321" class="Comment">-- (https://github.com/fahad1985lab/A_simulator_of_Solidity-style_smart_contracts_in_the_theorem_prover_Agda)</a>
+
+
+<a id="2433" class="Comment">-- A TRANSLATON OF SOLIDITY INTO AGDA</a>
+
+
+<a id="2473" class="Comment">-- A.1 Simple Simulator</a>
+<a id="2497" class="Keyword">open</a> <a id="2502" class="Keyword">import</a> <a id="2509" href="Simple-Model.example.solidityToagdaInsimplemodel-counterexample.html" class="Module">Simple-Model.example.solidityToagdaInsimplemodel-counterexample</a>
+
+
+<a id="2575" class="Comment">-- A.2 Complex simulator</a>
+<a id="2600" class="Keyword">open</a> <a id="2605" class="Keyword">import</a> <a id="2612" href="Complex-Model.example.solidityToagdaIncomplexmodel-votingexample.html" class="Module">Complex-Model.example.solidityToagdaIncomplexmodel-votingexample</a>
+<a id="2677" class="Keyword">open</a> <a id="2682" class="Keyword">import</a> <a id="2689" href="libraries.ComplexModelLibrary.html" class="Module">libraries.ComplexModelLibrary</a>
+</pre></body></html>

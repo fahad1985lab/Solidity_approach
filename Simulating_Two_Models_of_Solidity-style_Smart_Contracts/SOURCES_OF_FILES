@@ -1,0 +1,5 @@
+The files (Base.agda, Console.agda, ConsoleLib.agda, Interface.agda, NativeInt.agda, NativeIO.agda, Object.agda, and Unit.agda) are
+slightly modified version of the library <ooAgda> available at <https://github.com/agda/ooAgda>.
+
+The remaining files in this directory are an expansion of the files from the library developed <A_model_of_Solidity_style_smart_contracts_in_the_theorem_prover_Agda_> 
+available at <https://github.com/fahad1985lab/A_model_of_Solidity_style_smart_contracts_in_the_theorem_prover_Agda_>
