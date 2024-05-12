@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>constantparameters</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="constantparameters.html" class="Module">constantparameters</a> <a id="27" class="Keyword">where</a>
+
+<a id="34" class="Keyword">open</a> <a id="39" class="Keyword">import</a> <a id="46" href="Data.Nat.html" class="Module">Data.Nat</a>
+<a id="55" class="Keyword">open</a> <a id="60" class="Keyword">import</a> <a id="67" href="Data.String.html" class="Module">Data.String</a> <a id="79" class="Keyword">hiding</a> <a id="86" class="Symbol">(</a><a id="87" href="Data.String.Base.html#2468" class="Function">length</a><a id="93" class="Symbol">)</a>
+<a id="95" class="Keyword">open</a> <a id="100" class="Keyword">import</a> <a id="107" href="Data.List.html" class="Module">Data.List</a>
+<a id="117" class="Keyword">open</a> <a id="122" class="Keyword">import</a> <a id="129" href="Data.Bool.html" class="Module">Data.Bool</a>
+
+<a id="140" class="Keyword">open</a> <a id="145" class="Keyword">import</a> <a id="152" href="basicDataStructure.html" class="Module">basicDataStructure</a>
+<a id="171" class="Keyword">open</a> <a id="176" class="Keyword">import</a> <a id="183" href="Complex-Model.ccomand.ccommands-cresponse.html" class="Module">Complex-Model.ccomand.ccommands-cresponse</a>
+
+
+
+<a id="228" class="Keyword">record</a> <a id="ConstantParameters"></a><a id="235" href="constantparameters.html#235" class="Record">ConstantParameters</a> <a id="254" class="Symbol">:</a> <a id="256" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="260" class="Keyword">where</a>
+  <a id="268" class="Keyword">field</a>
+    <a id="ConstantParameters.hash"></a><a id="278" href="constantparameters.html#278" class="Field">hash</a>                   <a id="301" class="Symbol">:</a> <a id="303" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="305" class="Symbol">→</a> <a id="307" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="313" class="Comment">--costupdatec : this one depend on the size of the code we updated our and added ℕ to update.</a>
+                    <a id="427" class="Comment">--in response we add cost to update</a>
+    <a id="ConstantParameters.costcurrentAddrLookupc"></a><a id="467" href="constantparameters.html#467" class="Field">costcurrentAddrLookupc</a> <a id="490" class="Symbol">:</a> <a id="492" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costcallAddrLookupc"></a><a id="498" href="constantparameters.html#498" class="Field">costcallAddrLookupc</a>    <a id="521" class="Symbol">:</a> <a id="523" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costcallc"></a><a id="529" href="constantparameters.html#529" class="Field">costcallc</a>              <a id="552" class="Symbol">:</a> <a id="554" href="basicDataStructure.html#523" class="Datatype">Msg</a> <a id="558" class="Symbol">→</a> <a id="560" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costtransfer"></a><a id="566" href="constantparameters.html#566" class="Field">costtransfer</a>           <a id="589" class="Symbol">:</a> <a id="591" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costgetAmount"></a><a id="597" href="constantparameters.html#597" class="Field">costgetAmount</a>          <a id="620" class="Symbol">:</a> <a id="622" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costreturn"></a><a id="628" href="constantparameters.html#628" class="Field">costreturn</a>             <a id="651" class="Symbol">:</a> <a id="653" href="basicDataStructure.html#523" class="Datatype">Msg</a> <a id="657" class="Symbol">→</a> <a id="659" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costerror"></a><a id="665" href="constantparameters.html#665" class="Field">costerror</a>              <a id="688" class="Symbol">:</a> <a id="690" href="basicDataStructure.html#671" class="Datatype">ErrorMsg</a> <a id="699" class="Symbol">→</a> <a id="701" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.costofreturn"></a><a id="707" href="constantparameters.html#707" class="Field">costofreturn</a>           <a id="730" class="Symbol">:</a> <a id="732" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="ConstantParameters.gasprice"></a><a id="738" href="constantparameters.html#738" class="Field">gasprice</a> <a id="747" class="Symbol">:</a> <a id="749" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+  <a id="ConstantParameters.GastoWei"></a><a id="753" href="constantparameters.html#753" class="Function">GastoWei</a>  <a id="763" class="Symbol">:</a> <a id="765" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="767" class="Symbol">→</a> <a id="769" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>  <a id="772" class="Comment">--</a>
+  <a id="777" href="constantparameters.html#753" class="Function">GastoWei</a> <a id="786" href="constantparameters.html#786" class="Bound">n</a> <a id="788" class="Symbol">=</a> <a id="790" href="constantparameters.html#786" class="Bound">n</a> <a id="792" href="Agda.Builtin.Nat.html#539" class="Primitive Operator">*</a> <a id="794" href="constantparameters.html#738" class="Field">gasprice</a>
+
+<a id="804" class="Keyword">open</a> <a id="809" href="constantparameters.html#235" class="Module">ConstantParameters</a> <a id="828" class="Keyword">public</a>
+
+
+<a id="exampleParameters"></a><a id="837" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="855" class="Symbol">:</a> <a id="857" href="constantparameters.html#235" class="Record">ConstantParameters</a>
+<a id="876" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="894" class="Symbol">.</a><a id="895" href="constantparameters.html#278" class="Field">hash</a>  <a id="901" href="constantparameters.html#901" class="Bound">n</a> <a id="903" class="Symbol">=</a>  <a id="906" class="Number">1</a>
+<a id="908" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="926" class="Symbol">.</a><a id="927" href="constantparameters.html#467" class="Field">costcurrentAddrLookupc</a> <a id="950" class="Symbol">=</a>  <a id="953" class="Number">1</a>
+<a id="955" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="973" class="Symbol">.</a><a id="974" href="constantparameters.html#498" class="Field">costcallAddrLookupc</a> <a id="994" class="Symbol">=</a>  <a id="997" class="Number">1</a>
+<a id="999" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1017" class="Symbol">.</a><a id="1018" href="constantparameters.html#529" class="Field">costcallc</a> <a id="1028" href="constantparameters.html#1028" class="Bound">n</a> <a id="1030" class="Symbol">=</a>  <a id="1033" class="Number">1</a>
+<a id="1035" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1053" class="Symbol">.</a><a id="1054" href="constantparameters.html#566" class="Field">costtransfer</a> <a id="1067" class="Symbol">=</a>  <a id="1070" class="Number">1</a>
+<a id="1072" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1090" class="Symbol">.</a><a id="1091" href="constantparameters.html#597" class="Field">costgetAmount</a> <a id="1105" class="Symbol">=</a>  <a id="1108" class="Number">1</a>
+<a id="1110" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1128" class="Symbol">.</a><a id="1129" href="constantparameters.html#628" class="Field">costreturn</a> <a id="1140" href="constantparameters.html#1140" class="Bound">n</a> <a id="1142" class="Symbol">=</a>  <a id="1145" class="Number">1</a>
+<a id="1147" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1165" class="Symbol">.</a><a id="1166" href="constantparameters.html#665" class="Field">costerror</a> <a id="1176" href="constantparameters.html#1176" class="Bound">n</a> <a id="1178" class="Symbol">=</a>  <a id="1181" class="Number">1</a>
+<a id="1183" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1201" class="Symbol">.</a><a id="1202" href="constantparameters.html#707" class="Field">costofreturn</a> <a id="1215" class="Symbol">=</a>  <a id="1218" class="Number">1</a>
+<a id="1220" href="constantparameters.html#837" class="Function">exampleParameters</a> <a id="1238" class="Symbol">.</a><a id="1239" href="constantparameters.html#738" class="Field">gasprice</a> <a id="1248" class="Symbol">=</a> <a id="1250" class="Number">1</a>
+</pre></body></html>
