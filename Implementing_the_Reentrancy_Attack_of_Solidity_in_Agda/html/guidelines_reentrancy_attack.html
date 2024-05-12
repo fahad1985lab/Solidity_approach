@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>guidelines_reentrancy_attack</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">open</a> <a id="6" class="Keyword">import</a> <a id="13" href="constantparameters.html" class="Module">constantparameters</a>
+
+
+<a id="34" class="Keyword">module</a> <a id="41" href="guidelines_reentrancy_attack.html" class="Module Operator">guidelines_reentrancy_attack</a> <a id="70" class="Symbol">(</a><a id="71" href="guidelines_reentrancy_attack.html#71" class="Bound">param</a> <a id="77" class="Symbol">:</a> <a id="79" href="constantparameters.html#235" class="Record">ConstantParameters</a><a id="97" class="Symbol">)</a> <a id="99" class="Keyword">where</a>
+
+
+<a id="107" class="Comment">-- This file is guidelines for the code contained in the paper.</a>
+<a id="171" class="Comment">-- The authors:  Fahad Alhabardi and Anton Setzer</a>
+<a id="221" class="Comment">-- The title of the paper: Verification of Solidity-style Smart Contracts in Agda using Weakest Precondition</a>
+<a id="330" class="Comment">-- All files have been checked and worked (Agda version 2.6.4.1) (Agda standard library version 2.0).</a>
+<a id="432" class="Comment">-- In order to open these files you need to load all files and by clicking on opening iomprt statment you can get to the diffrent funds.</a>
+
+
+
+
+           <a id="584" class="Comment">--- Sect V. THE REENTRACY ATTACK</a>
+
+                <a id="634" class="Comment">------------------------</a>
+                <a id="675" class="Comment">--   reentracy attack --</a>
+                <a id="716" class="Comment">------------------------</a>
+<a id="741" class="Comment">-- Ledger</a>
+
+<a id="752" class="Keyword">open</a> <a id="757" class="Keyword">import</a> <a id="764" href="Complex-Model.ledgerversion.Ledger-Complex-Model-with-reentrancy-attack.html" class="Module">Complex-Model.ledgerversion.Ledger-Complex-Model-with-reentrancy-attack</a>
+
+<a id="837" class="Comment">-- Example</a>
+
+<a id="849" class="Keyword">open</a> <a id="854" class="Keyword">import</a> <a id="861" href="Complex-Model.example.reentrancy-attack.reentrancy-attack.html" class="Module">Complex-Model.example.reentrancy-attack.reentrancy-attack</a>
+
+<a id="920" class="Comment">-- Execute the example of reentrancy attack</a>
+<a id="964" class="Keyword">open</a> <a id="969" class="Keyword">import</a> <a id="976" href="Complex-Model.example.reentrancy-attack.executed-reentrancy-attack.html" class="Module">Complex-Model.example.reentrancy-attack.executed-reentrancy-attack</a>
+
+<a id="1044" class="Comment">-- commands and responses in the complex model version 2</a>
+
+<a id="1102" class="Keyword">open</a> <a id="1107" class="Keyword">import</a> <a id="1114" href="Complex-Model.ccomand.ccommands-cresponse.html" class="Module">Complex-Model.ccomand.ccommands-cresponse</a>
+
+<a id="1157" class="Comment">-- Interactive program in Agda</a>
+
+<a id="1189" class="Keyword">open</a> <a id="1194" class="Keyword">import</a> <a id="1201" href="Complex-Model.IOledger.IOledgerReentrancyAttack.html" class="Module">Complex-Model.IOledger.IOledgerReentrancyAttack</a>
+
+
+
+                <a id="1268" class="Comment">----------------------</a>
+                <a id="1307" class="Comment">-- Root Directory   --</a>
+                <a id="1346" class="Comment">----------------------</a>
+
+<a id="1370" class="Keyword">open</a> <a id="1375" class="Keyword">import</a> <a id="1382" href="basicDataStructure.html" class="Module">basicDataStructure</a>
+
+
+                <a id="1419" class="Comment">----------------------</a>
+                <a id="1458" class="Comment">--   libraries      --</a>
+                <a id="1497" class="Comment">----------------------</a>
+<a id="1520" class="Keyword">open</a> <a id="1525" class="Keyword">import</a> <a id="1532" href="libraries.Mainlibrary-new-version.html" class="Module">libraries.Mainlibrary-new-version</a>
+<a id="1566" class="Keyword">open</a> <a id="1571" class="Keyword">import</a> <a id="1578" href="libraries.IOlibrary-new-version.html" class="Module">libraries.IOlibrary-new-version</a>
+<a id="1610" class="Keyword">open</a> <a id="1615" class="Keyword">import</a> <a id="1622" href="libraries.emptyLib.html" class="Module">libraries.emptyLib</a>
+<a id="1641" class="Keyword">open</a> <a id="1646" class="Keyword">import</a> <a id="1653" href="libraries.natCompare.html" class="Module">libraries.natCompare</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></body></html>

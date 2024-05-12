@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>interface.Object</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Comment">--@PREFIX@SizedIOBase</a>
+<a id="23" class="Symbol">{-#</a> <a id="27" class="Keyword">OPTIONS</a> <a id="35" class="Pragma">--sized-types</a> <a id="49" class="Pragma">--guardedness</a> <a id="63" class="Symbol">#-}</a>
+<a id="67" class="Keyword">module</a> <a id="74" href="interface.Object.html" class="Module">interface.Object</a> <a id="91" class="Keyword">where</a>
+
+<a id="98" class="Keyword">open</a> <a id="103" class="Keyword">import</a> <a id="110" href="Data.Product.html" class="Module">Data.Product</a>
+
+<a id="124" class="Keyword">record</a> <a id="Interface"></a><a id="131" href="interface.Object.html#131" class="Record">Interface</a> <a id="141" class="Symbol">:</a> <a id="143" href="Agda.Primitive.html#388" class="Primitive">Set₁</a> <a id="148" class="Keyword">where</a>
+  <a id="156" class="Keyword">field</a>
+    <a id="Interface.Method"></a><a id="166" href="interface.Object.html#166" class="Field">Method</a>  <a id="174" class="Symbol">:</a> <a id="176" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+    <a id="Interface.Result"></a><a id="184" href="interface.Object.html#184" class="Field">Result</a>  <a id="192" class="Symbol">:</a> <a id="194" class="Symbol">(</a><a id="195" href="interface.Object.html#195" class="Bound">m</a> <a id="197" class="Symbol">:</a> <a id="199" href="interface.Object.html#166" class="Field">Method</a><a id="205" class="Symbol">)</a> <a id="207" class="Symbol">→</a> <a id="209" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="213" class="Keyword">open</a> <a id="218" href="interface.Object.html#131" class="Module">Interface</a> <a id="228" class="Keyword">public</a>
+
+<a id="236" class="Comment">-- A simple object just returns for a method the response</a>
+<a id="294" class="Comment">-- and the object itself</a>
+<a id="319" class="Keyword">record</a> <a id="Object"></a><a id="326" href="interface.Object.html#326" class="Record">Object</a> <a id="333" class="Symbol">(</a><a id="334" href="interface.Object.html#334" class="Bound">i</a> <a id="336" class="Symbol">:</a> <a id="338" href="interface.Object.html#131" class="Record">Interface</a><a id="347" class="Symbol">)</a> <a id="349" class="Symbol">:</a> <a id="351" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="355" class="Keyword">where</a>
+  <a id="363" class="Keyword">coinductive</a>
+  <a id="377" class="Keyword">field</a>
+    <a id="Object.objectMethod"></a><a id="387" href="interface.Object.html#387" class="Field">objectMethod</a> <a id="400" class="Symbol">:</a> <a id="402" class="Symbol">(</a><a id="403" href="interface.Object.html#403" class="Bound">m</a> <a id="405" class="Symbol">:</a> <a id="407" href="interface.Object.html#166" class="Field">Method</a> <a id="414" href="interface.Object.html#334" class="Bound">i</a><a id="415" class="Symbol">)</a> <a id="417" class="Symbol">→</a> <a id="419" href="interface.Object.html#184" class="Field">Result</a> <a id="426" href="interface.Object.html#334" class="Bound">i</a> <a id="428" href="interface.Object.html#403" class="Bound">m</a> <a id="430" href="Data.Product.Base.html#1618" class="Function Operator">×</a> <a id="432" href="interface.Object.html#326" class="Record">Object</a> <a id="439" href="interface.Object.html#334" class="Bound">i</a>
+
+<a id="442" class="Keyword">open</a> <a id="447" href="interface.Object.html#326" class="Module">Object</a> <a id="454" class="Keyword">public</a>
+
+
+<a id="_▹_"></a><a id="463" href="interface.Object.html#463" class="Function Operator">_▹_</a> <a id="467" class="Symbol">:</a> <a id="469" class="Symbol">{</a><a id="470" href="interface.Object.html#470" class="Bound">A</a> <a id="472" class="Symbol">:</a> <a id="474" href="Agda.Primitive.html#388" class="Primitive">Set</a><a id="477" class="Symbol">}</a> <a id="479" class="Symbol">→</a> <a id="481" class="Symbol">{</a><a id="482" href="interface.Object.html#482" class="Bound">B</a> <a id="484" class="Symbol">:</a> <a id="486" href="Agda.Primitive.html#388" class="Primitive">Set</a><a id="489" class="Symbol">}</a> <a id="491" class="Symbol">→</a> <a id="493" href="interface.Object.html#470" class="Bound">A</a> <a id="495" class="Symbol">→</a> <a id="497" class="Symbol">(</a><a id="498" href="interface.Object.html#470" class="Bound">A</a> <a id="500" class="Symbol">→</a> <a id="502" href="interface.Object.html#482" class="Bound">B</a><a id="503" class="Symbol">)</a> <a id="505" class="Symbol">→</a> <a id="507" href="interface.Object.html#482" class="Bound">B</a>
+<a id="509" href="interface.Object.html#509" class="Bound">a</a> <a id="511" href="interface.Object.html#463" class="Function Operator">▹</a> <a id="513" href="interface.Object.html#513" class="Bound">f</a> <a id="515" class="Symbol">=</a> <a id="517" href="interface.Object.html#513" class="Bound">f</a> <a id="519" href="interface.Object.html#509" class="Bound">a</a>
+</pre></body></html>
