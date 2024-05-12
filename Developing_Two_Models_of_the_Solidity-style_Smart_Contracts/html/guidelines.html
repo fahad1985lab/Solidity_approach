@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>guidelines</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">open</a> <a id="6" class="Keyword">import</a> <a id="13" href="constantparameters.html" class="Module">constantparameters</a>
+
+
+<a id="34" class="Keyword">module</a> <a id="41" href="guidelines.html" class="Module">guidelines</a> <a id="52" class="Symbol">(</a><a id="53" href="guidelines.html#53" class="Bound">param</a> <a id="59" class="Symbol">:</a> <a id="61" href="constantparameters.html#275" class="Record">ConstantParameters</a><a id="79" class="Symbol">)</a> <a id="81" class="Keyword">where</a>
+
+
+<a id="89" class="Comment">-- This file is guidelines for the code contained in the paper.</a>
+<a id="153" class="Comment">-- The authors:  Fahad Alhabardi and Anton Setzer</a>
+<a id="203" class="Comment">-- The title of the paper: A model of the Solidity-style smart contracts in the theorem prover Agda</a>
+<a id="303" class="Comment">-- All files have been checked and worked</a>
+
+
+<a id="347" class="Comment">-- Sect I INTRODUCTION</a>
+
+<a id="371" class="Comment">-- Sect II RELATED WORK</a>
+
+
+<a id="397" class="Comment">-- Sect III. BACKGROUND – THE PROOF ASSISTANT AGDA AND ETHEREUM</a>
+
+<a id="462" class="Comment">--- Subsection A. The theorem prover Agda</a>
+
+<a id="505" class="Keyword">open</a> <a id="510" class="Keyword">import</a> <a id="517" href="Simple-Model.ledgerversion.Ledger-Simple-Model.html" class="Module">Simple-Model.ledgerversion.Ledger-Simple-Model</a>
+
+
+<a id="566" class="Comment">--- Subsection B. Ethereum</a>
+
+
+<a id="595" class="Comment">-- Sect IV. MODELLING OF SOLIDITY SMART CONTRACTS IN AGDA</a>
+
+<a id="654" class="Comment">--- Subsection A. Overview on simple and complex models</a>
+
+<a id="711" class="Comment">--- Subsection B. Simple model of Solidity smart contracts in Agda</a>
+
+<a id="779" class="Comment">-- Ledger</a>
+
+<a id="790" class="Keyword">open</a> <a id="795" class="Keyword">import</a> <a id="802" href="Simple-Model.ledgerversion.Ledger-Simple-Model.html" class="Module">Simple-Model.ledgerversion.Ledger-Simple-Model</a>
+
+<a id="850" class="Comment">-- An example of an increment</a>
+
+<a id="881" class="Keyword">open</a> <a id="886" class="Keyword">import</a> <a id="893" href="Simple-Model.example.examplecounter.html" class="Module">Simple-Model.example.examplecounter</a>
+
+<a id="930" class="Comment">--Library</a>
+
+<a id="941" class="Keyword">open</a> <a id="946" class="Keyword">import</a> <a id="953" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html" class="Module">Simple-Model.library-simple-model.basicDataStructureWithSimpleModel</a>
+
+
+
+
+<a id="1025" class="Comment">--- Subsection C. Complex model of solidity smart contracts in Agda</a>
+
+<a id="1094" class="Comment">-- Ledger</a>
+
+<a id="1105" class="Keyword">open</a> <a id="1110" class="Keyword">import</a> <a id="1117" href="Complex-Model.ledgerversion.Ledger-Complex-Model.html" class="Module">Complex-Model.ledgerversion.Ledger-Complex-Model</a>
+
+<a id="1167" class="Comment">-- commands and responses</a>
+
+<a id="1194" class="Keyword">open</a> <a id="1199" class="Keyword">import</a> <a id="1206" href="Complex-Model.ccomand.ccommands-cresponse.html" class="Module">Complex-Model.ccomand.ccommands-cresponse</a>
+
+
+
+<a id="1251" class="Comment">-- A voting example for single candidate</a>
+
+<a id="1293" class="Keyword">open</a> <a id="1298" class="Keyword">import</a> <a id="1305" href="Complex-Model.example.votingexample-single-candidate.html" class="Module">Complex-Model.example.votingexample-single-candidate</a>
+
+<a id="1359" class="Comment">-- Executed voting example for single candidate</a>
+
+<a id="1408" class="Keyword">open</a> <a id="1413" class="Keyword">import</a> <a id="1420" href="Complex-Model.example.executedvotingexample-single-candidate.html" class="Module">Complex-Model.example.executedvotingexample-single-candidate</a>
+
+
+
+<a id="1484" class="Comment">-- a more democratic one with multiple candidates</a>
+
+<a id="1535" class="Comment">-- A voting example for multiple candidates</a>
+
+<a id="1580" class="Keyword">open</a> <a id="1585" class="Keyword">import</a> <a id="1592" href="Complex-Model.example.votingexample-multi-candidates.html" class="Module">Complex-Model.example.votingexample-multi-candidates</a>
+
+<a id="1646" class="Comment">-- Executed voting example for multiple candidates</a>
+
+<a id="1698" class="Keyword">open</a> <a id="1703" class="Keyword">import</a> <a id="1710" href="Complex-Model.example.executedvotingexample-multi-candidates.html" class="Module">Complex-Model.example.executedvotingexample-multi-candidates</a>
+
+<a id="1772" class="Comment">-- Sect V. CONCLUSION AND FUTURE WORK</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></body></html>
