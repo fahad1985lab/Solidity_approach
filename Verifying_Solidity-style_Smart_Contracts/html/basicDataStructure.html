@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>basicDataStructure</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="basicDataStructure.html" class="Module">basicDataStructure</a> <a id="27" class="Keyword">where</a>
+
+<a id="34" class="Keyword">open</a> <a id="39" class="Keyword">import</a> <a id="46" href="Data.Nat.html" class="Module">Data.Nat</a>
+<a id="55" class="Keyword">open</a> <a id="60" class="Keyword">import</a> <a id="67" href="Data.String.html" class="Module">Data.String</a> <a id="79" class="Keyword">hiding</a> <a id="86" class="Symbol">(</a><a id="87" href="Data.String.Base.html#2468" class="Function">length</a><a id="93" class="Symbol">)</a>
+<a id="95" class="Keyword">open</a> <a id="100" class="Keyword">import</a> <a id="107" href="Data.List.html" class="Module">Data.List</a>
+<a id="117" class="Keyword">open</a> <a id="122" class="Keyword">import</a> <a id="129" href="Data.Bool.html" class="Module">Data.Bool</a>
+<a id="139" class="Keyword">open</a> <a id="144" class="Keyword">import</a> <a id="151" href="Agda.Builtin.String.html" class="Module">Agda.Builtin.String</a>
+
+<a id="FunctionName"></a><a id="172" href="basicDataStructure.html#172" class="Function">FunctionName</a> <a id="185" class="Symbol">:</a> <a id="187" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="191" href="basicDataStructure.html#172" class="Function">FunctionName</a> <a id="204" class="Symbol">=</a> <a id="206" href="Agda.Builtin.String.html#335" class="Postulate">String</a>
+
+<a id="214" class="Comment">-- Boolean valued equality on FunctionName</a>
+<a id="_≡fun_"></a><a id="257" href="basicDataStructure.html#257" class="Function Operator">_≡fun_</a> <a id="264" class="Symbol">:</a> <a id="266" href="basicDataStructure.html#172" class="Function">FunctionName</a> <a id="279" class="Symbol">→</a> <a id="281" href="basicDataStructure.html#172" class="Function">FunctionName</a> <a id="294" class="Symbol">→</a> <a id="296" href="Agda.Builtin.Bool.html#173" class="Datatype">Bool</a>
+<a id="301" href="basicDataStructure.html#257" class="Function Operator">_≡fun_</a> <a id="308" class="Symbol">=</a> <a id="310" href="Agda.Builtin.String.html#585" class="Primitive">primStringEquality</a>
+
+
+
+
+<a id="Time"></a><a id="333" href="basicDataStructure.html#333" class="Function">Time</a>   <a id="340" class="Symbol">:</a> <a id="342" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="346" href="basicDataStructure.html#333" class="Function">Time</a>   <a id="353" class="Symbol">=</a>   <a id="357" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="Amount"></a><a id="361" href="basicDataStructure.html#361" class="Function">Amount</a> <a id="368" class="Symbol">:</a> <a id="370" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="374" href="basicDataStructure.html#361" class="Function">Amount</a> <a id="381" class="Symbol">=</a>  <a id="384" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="Address"></a><a id="388" href="basicDataStructure.html#388" class="Function">Address</a> <a id="396" class="Symbol">:</a> <a id="398" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="402" href="basicDataStructure.html#388" class="Function">Address</a>  <a id="411" class="Symbol">=</a>  <a id="414" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="Signature"></a><a id="418" href="basicDataStructure.html#418" class="Function">Signature</a> <a id="428" class="Symbol">:</a> <a id="430" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="434" href="basicDataStructure.html#418" class="Function">Signature</a> <a id="444" class="Symbol">=</a>  <a id="447" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+<a id="PublicKey"></a><a id="450" href="basicDataStructure.html#450" class="Function">PublicKey</a> <a id="460" class="Symbol">:</a> <a id="462" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="466" href="basicDataStructure.html#450" class="Function">PublicKey</a>  <a id="477" class="Symbol">=</a>  <a id="480" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="484" class="Keyword">data</a> <a id="Msg"></a><a id="489" href="basicDataStructure.html#489" class="Datatype">Msg</a> <a id="493" class="Symbol">:</a> <a id="495" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="499" class="Keyword">where</a>
+   <a id="Msg.nat"></a><a id="508" href="basicDataStructure.html#508" class="InductiveConstructor">nat</a>     <a id="516" class="Symbol">:</a>  <a id="519" class="Symbol">(</a><a id="520" href="basicDataStructure.html#520" class="Bound">n</a> <a id="522" class="Symbol">:</a> <a id="524" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a><a id="525" class="Symbol">)</a>         <a id="535" class="Symbol">→</a> <a id="537" href="basicDataStructure.html#489" class="Datatype">Msg</a>
+   <a id="Msg._+msg_"></a><a id="544" href="basicDataStructure.html#544" class="InductiveConstructor Operator">_+msg_</a>  <a id="552" class="Symbol">:</a>  <a id="555" class="Symbol">(</a><a id="556" href="basicDataStructure.html#556" class="Bound">m</a> <a id="558" href="basicDataStructure.html#558" class="Bound">m&#39;</a> <a id="561" class="Symbol">:</a> <a id="563" href="basicDataStructure.html#489" class="Datatype">Msg</a><a id="566" class="Symbol">)</a>     <a id="572" class="Symbol">→</a> <a id="574" href="basicDataStructure.html#489" class="Datatype">Msg</a>
+   <a id="Msg.list"></a><a id="581" href="basicDataStructure.html#581" class="InductiveConstructor">list</a>    <a id="589" class="Symbol">:</a>  <a id="592" class="Symbol">(</a><a id="593" href="basicDataStructure.html#593" class="Bound">l</a>  <a id="596" class="Symbol">:</a> <a id="598" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="603" href="basicDataStructure.html#489" class="Datatype">Msg</a><a id="606" class="Symbol">)</a>  <a id="609" class="Symbol">→</a> <a id="611" href="basicDataStructure.html#489" class="Datatype">Msg</a>
+
+
+
+<a id="618" class="Keyword">data</a> <a id="ErrorMsg"></a><a id="623" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a> <a id="632" class="Symbol">:</a> <a id="634" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="638" class="Keyword">where</a>
+  <a id="ErrorMsg.strErr"></a><a id="646" href="basicDataStructure.html#646" class="InductiveConstructor">strErr</a>    <a id="656" class="Symbol">:</a> <a id="658" href="Agda.Builtin.String.html#335" class="Postulate">String</a> <a id="665" class="Symbol">→</a> <a id="667" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a>
+  <a id="ErrorMsg.numErr"></a><a id="678" href="basicDataStructure.html#678" class="InductiveConstructor">numErr</a>    <a id="688" class="Symbol">:</a> <a id="690" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="692" class="Symbol">→</a> <a id="694" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a>
+  <a id="ErrorMsg.undefined"></a><a id="705" href="basicDataStructure.html#705" class="InductiveConstructor">undefined</a> <a id="715" class="Symbol">:</a> <a id="717" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a>
+  <a id="ErrorMsg.outOfGasError"></a><a id="728" href="basicDataStructure.html#728" class="InductiveConstructor">outOfGasError</a> <a id="742" class="Symbol">:</a> <a id="744" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a>
+
+
+<a id="755" class="Comment">--define debug information</a>
+<a id="782" class="Keyword">record</a> <a id="DebugInfo"></a><a id="789" href="basicDataStructure.html#789" class="Record">DebugInfo</a>  <a id="800" class="Symbol">:</a> <a id="802" href="Agda.Primitive.html#388" class="Primitive">Set</a>  <a id="807" class="Keyword">where</a>
+       <a id="820" class="Keyword">constructor</a> <a id="⟨_&gt;&gt;_∙_[_]⟩"></a><a id="832" href="basicDataStructure.html#832" class="InductiveConstructor Operator">⟨_&gt;&gt;_∙_[_]⟩</a>
+       <a id="851" class="Keyword">field</a>
+        <a id="DebugInfo.lastcalladdr"></a><a id="865" href="basicDataStructure.html#865" class="Field">lastcalladdr</a>    <a id="881" class="Symbol">:</a> <a id="883" href="basicDataStructure.html#388" class="Function">Address</a>
+        <a id="DebugInfo.curraddr"></a><a id="899" href="basicDataStructure.html#899" class="Field">curraddr</a>        <a id="915" class="Symbol">:</a> <a id="917" href="basicDataStructure.html#388" class="Function">Address</a>
+        <a id="DebugInfo.lastfunname"></a><a id="933" href="basicDataStructure.html#933" class="Field">lastfunname</a>     <a id="949" class="Symbol">:</a> <a id="951" href="basicDataStructure.html#172" class="Function">FunctionName</a>
+        <a id="DebugInfo.lastmsg"></a><a id="972" href="basicDataStructure.html#972" class="Field">lastmsg</a>         <a id="988" class="Symbol">:</a> <a id="990" href="basicDataStructure.html#489" class="Datatype">Msg</a>
+<a id="994" class="Keyword">open</a> <a id="999" href="basicDataStructure.html#789" class="Module">DebugInfo</a> <a id="1009" class="Keyword">public</a>
+
+
+
+
+<a id="1020" class="Keyword">data</a> <a id="NatOrError"></a><a id="1025" href="basicDataStructure.html#1025" class="Datatype">NatOrError</a> <a id="1036" class="Symbol">:</a> <a id="1038" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="1042" class="Keyword">where</a>
+ <a id="NatOrError.nat"></a><a id="1049" href="basicDataStructure.html#1049" class="InductiveConstructor">nat</a> <a id="1053" class="Symbol">:</a> <a id="1055" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="1057" class="Symbol">→</a> <a id="1059" href="basicDataStructure.html#1025" class="Datatype">NatOrError</a>
+ <a id="NatOrError.err"></a><a id="1071" href="basicDataStructure.html#1071" class="InductiveConstructor">err</a> <a id="1075" class="Symbol">:</a> <a id="1077" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a> <a id="1086" class="Symbol">→</a> <a id="1088" href="basicDataStructure.html#789" class="Record">DebugInfo</a> <a id="1098" class="Symbol">→</a> <a id="1100" href="basicDataStructure.html#1025" class="Datatype">NatOrError</a>
+ <a id="NatOrError.invalidtransaction"></a><a id="1112" href="basicDataStructure.html#1112" class="InductiveConstructor">invalidtransaction</a> <a id="1131" class="Symbol">:</a> <a id="1133" href="basicDataStructure.html#1025" class="Datatype">NatOrError</a>
+
+
+<a id="1146" class="Comment">--This definition we use it to display the gasleft with NatOrError</a>
+<a id="1213" class="Keyword">record</a> <a id="NatOrErrorWithGas"></a><a id="1220" href="basicDataStructure.html#1220" class="Record">NatOrErrorWithGas</a>  <a id="1239" class="Symbol">:</a> <a id="1241" href="Agda.Primitive.html#388" class="Primitive">Set</a>  <a id="1246" class="Keyword">where</a>
+       <a id="1259" class="Keyword">constructor</a> <a id="_,_gas"></a><a id="1271" href="basicDataStructure.html#1271" class="InductiveConstructor Operator">_,_gas</a>
+       <a id="1285" class="Keyword">field</a>
+        <a id="NatOrErrorWithGas.natOrError"></a><a id="1299" href="basicDataStructure.html#1299" class="Field">natOrError</a> <a id="1310" class="Symbol">:</a> <a id="1312" href="basicDataStructure.html#1025" class="Datatype">NatOrError</a>
+        <a id="NatOrErrorWithGas.gas"></a><a id="1331" href="basicDataStructure.html#1331" class="Field">gas</a>    <a id="1338" class="Symbol">:</a> <a id="1340" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+<a id="1342" class="Keyword">open</a> <a id="1347" href="basicDataStructure.html#1220" class="Module">NatOrErrorWithGas</a> <a id="1365" class="Keyword">public</a>
+
+
+
+
+<a id="1376" class="Keyword">data</a> <a id="MsgOrError"></a><a id="1381" href="basicDataStructure.html#1381" class="Datatype">MsgOrError</a> <a id="1392" class="Symbol">:</a> <a id="1394" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="1398" class="Keyword">where</a>
+ <a id="MsgOrError.theMsg"></a><a id="1405" href="basicDataStructure.html#1405" class="InductiveConstructor">theMsg</a>  <a id="1413" class="Symbol">:</a> <a id="1415" href="basicDataStructure.html#489" class="Datatype">Msg</a> <a id="1419" class="Symbol">→</a> <a id="1421" href="basicDataStructure.html#1381" class="Datatype">MsgOrError</a>
+ <a id="MsgOrError.err"></a><a id="1433" href="basicDataStructure.html#1433" class="InductiveConstructor">err</a> <a id="1437" class="Symbol">:</a> <a id="1439" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a> <a id="1448" class="Symbol">→</a> <a id="1450" href="basicDataStructure.html#1381" class="Datatype">MsgOrError</a>
+
+
+<a id="1463" class="Comment">-- new definition</a>
+
+<a id="1482" class="Keyword">data</a> <a id="MsgOrError&#39;"></a><a id="1487" href="basicDataStructure.html#1487" class="Datatype">MsgOrError&#39;</a> <a id="1499" class="Symbol">:</a> <a id="1501" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="1505" class="Keyword">where</a>
+ <a id="MsgOrError&#39;.theMsg"></a><a id="1512" href="basicDataStructure.html#1512" class="InductiveConstructor">theMsg</a> <a id="1519" class="Symbol">:</a> <a id="1521" href="basicDataStructure.html#489" class="Datatype">Msg</a> <a id="1525" class="Symbol">→</a> <a id="1527" href="basicDataStructure.html#1487" class="Datatype">MsgOrError&#39;</a>
+ <a id="MsgOrError&#39;.err"></a><a id="1540" href="basicDataStructure.html#1540" class="InductiveConstructor">err</a> <a id="1544" class="Symbol">:</a> <a id="1546" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a> <a id="1555" class="Symbol">→</a> <a id="1557" href="basicDataStructure.html#789" class="Record">DebugInfo</a> <a id="1567" class="Symbol">→</a> <a id="1569" href="basicDataStructure.html#1487" class="Datatype">MsgOrError&#39;</a>
+<a id="1581" class="Comment">--  notNatErr : String → MsgOrError&#39;</a>
+ <a id="MsgOrError&#39;.invalidtransaction"></a><a id="1619" href="basicDataStructure.html#1619" class="InductiveConstructor">invalidtransaction</a> <a id="1638" class="Symbol">:</a> <a id="1640" href="basicDataStructure.html#1487" class="Datatype">MsgOrError&#39;</a>
+
+<a id="1653" class="Keyword">record</a> <a id="MsgOrErrorWithGas"></a><a id="1660" href="basicDataStructure.html#1660" class="Record">MsgOrErrorWithGas</a>  <a id="1679" class="Symbol">:</a> <a id="1681" href="Agda.Primitive.html#388" class="Primitive">Set</a>  <a id="1686" class="Keyword">where</a>
+       <a id="1699" class="Keyword">constructor</a> <a id="_,_gas"></a><a id="1711" href="basicDataStructure.html#1711" class="InductiveConstructor Operator">_,_gas</a>
+       <a id="1725" class="Keyword">field</a>
+        <a id="MsgOrErrorWithGas.msgOrError"></a><a id="1739" href="basicDataStructure.html#1739" class="Field">msgOrError</a> <a id="1750" class="Symbol">:</a> <a id="1752" href="basicDataStructure.html#1487" class="Datatype">MsgOrError&#39;</a>
+        <a id="MsgOrErrorWithGas.gas"></a><a id="1772" href="basicDataStructure.html#1772" class="Field">gas</a>    <a id="1779" class="Symbol">:</a> <a id="1781" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+<a id="1783" class="Keyword">open</a> <a id="1788" href="basicDataStructure.html#1660" class="Module">MsgOrErrorWithGas</a> <a id="1806" class="Keyword">public</a>
+
+
+
+<a id="1816" class="Comment">-- new definition</a>
+
+<a id="1835" class="Keyword">data</a> <a id="StringOrError&#39;"></a><a id="1840" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a> <a id="1855" class="Symbol">:</a> <a id="1857" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="1861" class="Keyword">where</a>
+ <a id="StringOrError&#39;.theString"></a><a id="1868" href="basicDataStructure.html#1868" class="InductiveConstructor">theString</a> <a id="1878" class="Symbol">:</a> <a id="1880" href="Agda.Builtin.String.html#335" class="Postulate">String</a> <a id="1887" class="Symbol">→</a> <a id="1889" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a>
+ <a id="StringOrError&#39;.err"></a><a id="1905" href="basicDataStructure.html#1905" class="InductiveConstructor">err</a> <a id="1909" class="Symbol">:</a> <a id="1911" href="basicDataStructure.html#623" class="Datatype">ErrorMsg</a> <a id="1920" class="Symbol">→</a> <a id="1922" href="basicDataStructure.html#789" class="Record">DebugInfo</a> <a id="1932" class="Symbol">→</a> <a id="1934" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a>
+ <a id="StringOrError&#39;.notNatErr"></a><a id="1950" href="basicDataStructure.html#1950" class="InductiveConstructor">notNatErr</a> <a id="1960" class="Symbol">:</a> <a id="1962" href="Agda.Builtin.String.html#335" class="Postulate">String</a> <a id="1969" class="Symbol">→</a> <a id="1971" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a>
+ <a id="StringOrError&#39;.invalidtransaction"></a><a id="1987" href="basicDataStructure.html#1987" class="InductiveConstructor">invalidtransaction</a> <a id="2006" class="Symbol">:</a> <a id="2008" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a>
+
+<a id="2024" class="Keyword">record</a> <a id="StringOrErrorWithGas"></a><a id="2031" href="basicDataStructure.html#2031" class="Record">StringOrErrorWithGas</a>  <a id="2053" class="Symbol">:</a> <a id="2055" href="Agda.Primitive.html#388" class="Primitive">Set</a>  <a id="2060" class="Keyword">where</a>
+       <a id="2073" class="Keyword">constructor</a> <a id="_,_gas"></a><a id="2085" href="basicDataStructure.html#2085" class="InductiveConstructor Operator">_,_gas</a>
+       <a id="2099" class="Keyword">field</a>
+        <a id="StringOrErrorWithGas.stringOrError"></a><a id="2113" href="basicDataStructure.html#2113" class="Field">stringOrError</a> <a id="2127" class="Symbol">:</a> <a id="2129" href="basicDataStructure.html#1840" class="Datatype">StringOrError&#39;</a>
+        <a id="StringOrErrorWithGas.gas"></a><a id="2152" href="basicDataStructure.html#2152" class="Field">gas</a>    <a id="2159" class="Symbol">:</a> <a id="2161" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+<a id="2163" class="Keyword">open</a> <a id="2168" href="basicDataStructure.html#2031" class="Module">StringOrErrorWithGas</a> <a id="2189" class="Keyword">public</a>
+
+
+
+
+
+</pre></body></html>

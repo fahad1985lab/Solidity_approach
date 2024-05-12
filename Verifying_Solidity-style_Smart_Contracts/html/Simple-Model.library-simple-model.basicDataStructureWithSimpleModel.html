@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Simple-Model.library-simple-model.basicDataStructureWithSimpleModel</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html" class="Module">Simple-Model.library-simple-model.basicDataStructureWithSimpleModel</a> <a id="76" class="Keyword">where</a>
+
+<a id="83" class="Keyword">open</a> <a id="88" class="Keyword">import</a> <a id="95" href="Data.Nat.html" class="Module">Data.Nat</a>
+<a id="104" class="Keyword">open</a> <a id="109" class="Keyword">import</a> <a id="116" href="Data.String.html" class="Module">Data.String</a> <a id="128" class="Keyword">hiding</a> <a id="135" class="Symbol">(</a><a id="136" href="Data.String.Base.html#2468" class="Function">length</a><a id="142" class="Symbol">)</a>
+<a id="144" class="Keyword">open</a> <a id="149" class="Keyword">import</a> <a id="156" href="Data.List.html" class="Module">Data.List</a>
+<a id="166" class="Keyword">open</a> <a id="171" class="Keyword">import</a> <a id="178" href="Data.Bool.html" class="Module">Data.Bool</a>
+<a id="188" class="Keyword">open</a> <a id="193" class="Keyword">import</a> <a id="200" href="Agda.Builtin.String.html" class="Module">Agda.Builtin.String</a>
+
+
+
+<a id="FunctionName"></a><a id="223" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#223" class="Function">FunctionName</a> <a id="236" class="Symbol">:</a> <a id="238" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="242" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#223" class="Function">FunctionName</a> <a id="255" class="Symbol">=</a> <a id="257" href="Agda.Builtin.String.html#335" class="Postulate">String</a>
+
+
+
+<a id="_≡fun_"></a><a id="267" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#267" class="Function Operator">_≡fun_</a> <a id="274" class="Symbol">:</a> <a id="276" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#223" class="Function">FunctionName</a> <a id="289" class="Symbol">→</a> <a id="291" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#223" class="Function">FunctionName</a> <a id="304" class="Symbol">→</a> <a id="306" href="Agda.Builtin.Bool.html#173" class="Datatype">Bool</a>
+<a id="311" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#267" class="Function Operator">_≡fun_</a> <a id="318" class="Symbol">=</a> <a id="320" href="Agda.Builtin.String.html#585" class="Primitive">primStringEquality</a>
+
+
+<a id="341" class="Comment">--define message (msg)</a>
+<a id="364" class="Keyword">data</a> <a id="Msg"></a><a id="369" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#369" class="Datatype">Msg</a> <a id="373" class="Symbol">:</a> <a id="375" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="379" class="Keyword">where</a>
+   <a id="Msg.nat"></a><a id="388" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#388" class="InductiveConstructor">nat</a>     <a id="396" class="Symbol">:</a>  <a id="399" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>          <a id="410" class="Symbol">→</a>  <a id="413" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#369" class="Datatype">Msg</a>
+   <a id="Msg.list"></a><a id="420" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#420" class="InductiveConstructor">list</a>    <a id="428" class="Symbol">:</a>  <a id="431" href="Agda.Builtin.List.html#147" class="Datatype">List</a> <a id="436" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#369" class="Datatype">Msg</a>   <a id="442" class="Symbol">→</a>  <a id="445" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#369" class="Datatype">Msg</a>
+
+
+<a id="Time"></a><a id="451" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#451" class="Function">Time</a>   <a id="458" class="Symbol">:</a> <a id="460" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="464" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#451" class="Function">Time</a>   <a id="471" class="Symbol">=</a>   <a id="475" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="Amount"></a><a id="479" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#479" class="Function">Amount</a> <a id="486" class="Symbol">:</a> <a id="488" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="492" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#479" class="Function">Amount</a> <a id="499" class="Symbol">=</a>  <a id="502" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+<a id="505" class="Comment">--define errormsg</a>
+<a id="523" class="Keyword">data</a> <a id="ErrorMsg"></a><a id="528" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a> <a id="537" class="Symbol">:</a> <a id="539" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="543" class="Keyword">where</a>
+  <a id="ErrorMsg.strErr"></a><a id="551" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#551" class="InductiveConstructor">strErr</a>     <a id="562" class="Symbol">:</a> <a id="564" href="Agda.Builtin.String.html#335" class="Postulate">String</a> <a id="571" class="Symbol">→</a> <a id="573" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a>
+  <a id="ErrorMsg.numErr"></a><a id="584" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#584" class="InductiveConstructor">numErr</a>     <a id="595" class="Symbol">:</a> <a id="597" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="599" class="Symbol">→</a> <a id="601" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a>
+  <a id="ErrorMsg.undefined"></a><a id="612" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#612" class="InductiveConstructor">undefined</a>  <a id="623" class="Symbol">:</a> <a id="625" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a>
+
+
+<a id="Address"></a><a id="636" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#636" class="Function">Address</a> <a id="644" class="Symbol">:</a> <a id="646" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="650" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#636" class="Function">Address</a>  <a id="659" class="Symbol">=</a>  <a id="662" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="Signature"></a><a id="666" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#666" class="Function">Signature</a> <a id="676" class="Symbol">:</a> <a id="678" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="682" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#666" class="Function">Signature</a> <a id="692" class="Symbol">=</a>  <a id="695" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+<a id="PublicKey"></a><a id="698" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#698" class="Function">PublicKey</a> <a id="708" class="Symbol">:</a> <a id="710" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="714" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#698" class="Function">PublicKey</a>  <a id="725" class="Symbol">=</a>  <a id="728" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+
+
+<a id="732" class="Comment">--define natorerror</a>
+<a id="752" class="Keyword">data</a> <a id="NatOrError"></a><a id="757" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#757" class="Datatype">NatOrError</a> <a id="768" class="Symbol">:</a> <a id="770" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="774" class="Keyword">where</a>
+ <a id="NatOrError.nat"></a><a id="781" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#781" class="InductiveConstructor">nat</a> <a id="785" class="Symbol">:</a> <a id="787" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a> <a id="789" class="Symbol">→</a> <a id="791" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#757" class="Datatype">NatOrError</a>
+ <a id="NatOrError.err"></a><a id="803" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#803" class="InductiveConstructor">err</a> <a id="807" class="Symbol">:</a> <a id="809" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a> <a id="818" class="Symbol">→</a> <a id="820" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#757" class="Datatype">NatOrError</a>
+
+
+
+
+<a id="835" class="Keyword">data</a> <a id="MsgOrError"></a><a id="840" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#840" class="Datatype">MsgOrError</a> <a id="851" class="Symbol">:</a> <a id="853" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="857" class="Keyword">where</a>
+ <a id="MsgOrError.theMsg"></a><a id="864" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#864" class="InductiveConstructor">theMsg</a>  <a id="872" class="Symbol">:</a> <a id="874" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#369" class="Datatype">Msg</a> <a id="878" class="Symbol">→</a> <a id="880" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#840" class="Datatype">MsgOrError</a>
+ <a id="MsgOrError.err"></a><a id="892" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#892" class="InductiveConstructor">err</a> <a id="896" class="Symbol">:</a> <a id="898" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#528" class="Datatype">ErrorMsg</a> <a id="907" class="Symbol">→</a> <a id="909" href="Simple-Model.library-simple-model.basicDataStructureWithSimpleModel.html#840" class="Datatype">MsgOrError</a>
+
+
+
+
+</pre></body></html>

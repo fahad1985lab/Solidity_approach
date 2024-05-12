@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>libraries.naturalnumber</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="libraries.naturalnumber.html" class="Module">libraries.naturalnumber</a>  <a id="33" class="Keyword">where</a>
+
+
+<a id="41" class="Comment">--open import Data.Nat  hiding (_≤_ ; _&lt;_ )</a>
+<a id="85" class="Keyword">open</a> <a id="90" class="Keyword">import</a> <a id="97" href="Data.Bool.html" class="Module">Data.Bool</a> <a id="107" class="Keyword">hiding</a> <a id="114" class="Symbol">(</a><a id="115" href="Data.Bool.Base.html#681" class="Datatype Operator">_≤_</a> <a id="119" class="Symbol">;</a> <a id="121" href="Data.Bool.Base.html#760" class="Datatype Operator">_&lt;_</a><a id="124" class="Symbol">)</a>
+<a id="126" class="Keyword">open</a> <a id="131" class="Keyword">import</a> <a id="138" href="Data.Empty.html" class="Module">Data.Empty</a>
+<a id="149" class="Keyword">open</a> <a id="154" class="Keyword">import</a> <a id="161" href="Data.Unit.html" class="Module">Data.Unit</a>
+
+
+<a id="173" class="Comment">--define natural number</a>
+<a id="197" class="Keyword">data</a> <a id="ℕ"></a><a id="202" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a> <a id="204" class="Symbol">:</a> <a id="206" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="210" class="Keyword">where</a>
+  <a id="ℕ.zero"></a><a id="218" href="libraries.naturalnumber.html#218" class="InductiveConstructor">zero</a>  <a id="224" class="Symbol">:</a> <a id="226" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a>
+  <a id="ℕ.suc"></a><a id="230" href="libraries.naturalnumber.html#230" class="InductiveConstructor">suc</a>   <a id="236" class="Symbol">:</a> <a id="238" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a> <a id="240" class="Symbol">→</a> <a id="242" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a>
+
+
+<a id="pred"></a><a id="246" href="libraries.naturalnumber.html#246" class="Function">pred</a> <a id="251" class="Symbol">:</a> <a id="253" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a> <a id="255" class="Symbol">→</a> <a id="257" href="libraries.naturalnumber.html#202" class="Datatype">ℕ</a>
+<a id="259" href="libraries.naturalnumber.html#246" class="Function">pred</a> <a id="264" class="Symbol">(</a><a id="265" href="libraries.naturalnumber.html#230" class="InductiveConstructor">suc</a> <a id="269" href="libraries.naturalnumber.html#269" class="Bound">n</a><a id="270" class="Symbol">)</a> <a id="272" class="Symbol">=</a> <a id="274" href="libraries.naturalnumber.html#269" class="Bound">n</a>
+<a id="276" href="libraries.naturalnumber.html#246" class="Function">pred</a> <a id="281" href="libraries.naturalnumber.html#218" class="InductiveConstructor">zero</a> <a id="286" class="Symbol">=</a> <a id="288" href="libraries.naturalnumber.html#218" class="InductiveConstructor">zero</a>
+</pre></body></html>

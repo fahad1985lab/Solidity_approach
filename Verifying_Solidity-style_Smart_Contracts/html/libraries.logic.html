@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>libraries.logic</title><link rel="stylesheet" href="Agda.css"></head><body><pre class="Agda">
+<a id="2" class="Keyword">module</a> <a id="9" href="libraries.logic.html" class="Module">libraries.logic</a>  <a id="26" class="Keyword">where</a>
+
+<a id="33" class="Keyword">open</a> <a id="38" class="Keyword">import</a> <a id="45" href="Data.Bool.html" class="Module">Data.Bool</a> <a id="55" class="Keyword">hiding</a> <a id="62" class="Symbol">(</a><a id="63" href="Data.Bool.Base.html#995" class="Function Operator">_∧_</a> <a id="67" class="Symbol">;</a> <a id="69" href="Data.Bool.Base.html#1053" class="Function Operator">_∨_</a><a id="72" class="Symbol">)</a>
+<a id="74" class="Keyword">open</a> <a id="79" class="Keyword">import</a> <a id="86" href="Data.Empty.html" class="Module">Data.Empty</a>
+
+
+<a id="99" class="Keyword">data</a> <a id="_∧_"></a><a id="104" href="libraries.logic.html#104" class="Datatype Operator">_∧_</a> <a id="108" class="Symbol">(</a><a id="109" href="libraries.logic.html#109" class="Bound">A</a> <a id="111" href="libraries.logic.html#111" class="Bound">B</a> <a id="113" class="Symbol">:</a> <a id="115" href="Agda.Primitive.html#388" class="Primitive">Set</a><a id="118" class="Symbol">)</a> <a id="120" class="Symbol">:</a> <a id="122" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="126" class="Keyword">where</a>
+  <a id="_∧_.and"></a><a id="134" href="libraries.logic.html#134" class="InductiveConstructor">and</a> <a id="138" class="Symbol">:</a> <a id="140" href="libraries.logic.html#109" class="Bound">A</a> <a id="142" class="Symbol">-&gt;</a> <a id="145" href="libraries.logic.html#111" class="Bound">B</a> <a id="147" class="Symbol">-&gt;</a> <a id="150" href="libraries.logic.html#109" class="Bound">A</a> <a id="152" href="libraries.logic.html#104" class="Datatype Operator">∧</a> <a id="154" href="libraries.logic.html#111" class="Bound">B</a>
+
+
+
+<a id="159" class="Keyword">data</a> <a id="_∨_"></a><a id="164" href="libraries.logic.html#164" class="Datatype Operator">_∨_</a> <a id="168" class="Symbol">(</a><a id="169" href="libraries.logic.html#169" class="Bound">A</a> <a id="171" href="libraries.logic.html#171" class="Bound">B</a> <a id="173" class="Symbol">:</a> <a id="175" href="Agda.Primitive.html#388" class="Primitive">Set</a><a id="178" class="Symbol">)</a> <a id="180" class="Symbol">:</a> <a id="182" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="186" class="Keyword">where</a>
+  <a id="_∨_.or₁"></a><a id="194" href="libraries.logic.html#194" class="InductiveConstructor">or₁</a> <a id="198" class="Symbol">:</a> <a id="200" href="libraries.logic.html#169" class="Bound">A</a> <a id="202" class="Symbol">→</a> <a id="204" href="libraries.logic.html#169" class="Bound">A</a> <a id="206" href="libraries.logic.html#164" class="Datatype Operator">∨</a> <a id="208" href="libraries.logic.html#171" class="Bound">B</a>
+  <a id="_∨_.or₂"></a><a id="212" href="libraries.logic.html#212" class="InductiveConstructor">or₂</a> <a id="216" class="Symbol">:</a> <a id="218" href="libraries.logic.html#171" class="Bound">B</a> <a id="220" class="Symbol">→</a> <a id="222" href="libraries.logic.html#169" class="Bound">A</a> <a id="224" href="libraries.logic.html#164" class="Datatype Operator">∨</a> <a id="226" href="libraries.logic.html#171" class="Bound">B</a>
+
+<a id="¬"></a><a id="229" href="libraries.logic.html#229" class="Function">¬</a> <a id="231" class="Symbol">:</a> <a id="233" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="237" class="Symbol">→</a> <a id="239" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="243" href="libraries.logic.html#229" class="Function">¬</a> <a id="245" href="libraries.logic.html#245" class="Bound">A</a> <a id="247" class="Symbol">=</a> <a id="249" href="libraries.logic.html#245" class="Bound">A</a> <a id="251" class="Symbol">→</a> <a id="253" href="Data.Empty.html#895" class="Function">⊥</a>
+
+
+</pre></body></html>
