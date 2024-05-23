@@ -48,7 +48,12 @@ theMsg (nat 0) , 231 gas,
  ∷ "deposit function" ∷ [])
 -}
 
-
+eqproofresultReturneddeposit : resultReturneddeposit ≡
+ theMsg (nat 0) , 231 gas,
+ ("deposit +25000 wei at address 0 for address 2
+ New balance at address 0 is 125000wei \n"
+ ∷ "deposit function" ∷ [])
+eqproofresultReturneddeposit = refl
 
 -- obtain our ledger to get our amount for each contract
 ledgerAfterdeposit : Ledger
@@ -59,10 +64,13 @@ ledgerAfterdeposit = proj₁ resultAfterdeposit
 --- check amount after deposit 25000 wei at address 0
 checkamountAfterdepositAtadd0 : ℕ
 checkamountAfterdepositAtadd0 = ledgerAfterdeposit 0 .amount
-
 {- result amount at address 0 after deposit 5000 wei and before was 10000 wei
 125000 
 -}
+
+
+eqproofcheckamountAfterdepositAt0 : checkamountAfterdepositAtadd0 ≡ 125000
+eqproofcheckamountAfterdepositAt0 = refl
 
 
 --check amount after deposit 25000 wei at address 0 for address 2
@@ -72,6 +80,9 @@ checkamountAfterdepositAtadd2 = ledgerAfterdeposit 2 .amount
  981
 -}
 
+eqproofcheckamountAfterdepositAt2 : checkamountAfterdepositAtadd2 ≡ 981
+eqproofcheckamountAfterdepositAt2 = refl
+
 
 --check viewfunction after deposit 25000 wei at address 0 for address 2 (nat 2)
 checkviewFunctionAfterdeposit : MsgOrError
@@ -80,6 +91,9 @@ checkviewFunctionAfterdeposit = ledgerAfterdeposit 0 .viewFunction "balance" (na
 theMsg (nat 25000)
 
 -}
+
+eqproofcheckviewFunction : checkviewFunctionAfterdeposit ≡ theMsg (nat 25000)
+eqproofcheckviewFunction = refl
 
 
 --------------------------- Second test   (withdraw 5000 wei)
@@ -100,6 +114,11 @@ theMsg (nat 0) , 227 gas,
 ("Balance at address 0  = 125000 wei.\n withdraw -25000 wei." ∷ [])
 -}
 
+eqproofresultReturnedwithdraw : resultReturnedwithdraw ≡ 
+ theMsg (nat 0) , 227 gas,
+ ("Balance at address 0  = 125000 wei.
+ withdraw -25000 wei." ∷ [])
+eqproofresultReturnedwithdraw = refl
 
 ledgerAfterwithdraw : Ledger
 ledgerAfterwithdraw = proj₁ resultAfterwithdraw
@@ -111,6 +130,11 @@ checkamountforAddr0Afterwithdraw = ledgerAfterwithdraw 0 .amount
 100000
 -}
 
+eqproofcheckamountAfterwithdraw0 : checkamountforAddr0Afterwithdraw ≡ 100000
+eqproofcheckamountAfterwithdraw0 = refl
+
+
+
 --checkamountforAddr1Afterwithdraw to check amount at address 2 after withdraw 25000 wei from addr 0
 checkamountforAddr1Afterwithdraw : ℕ
 checkamountforAddr1Afterwithdraw = ledgerAfterwithdraw 2 .amount 
@@ -118,6 +142,8 @@ checkamountforAddr1Afterwithdraw = ledgerAfterwithdraw 2 .amount
 25958
 -}
 
+eqproofcheckamountAfterwithdraw2 : checkamountforAddr1Afterwithdraw ≡ 25958
+eqproofcheckamountAfterwithdraw2 = refl
 
 --check viewfunction after withdraw 25000 wei from address 0 for address 2 (nat 2)
 checkviewFunctionAfterwithdraw : MsgOrError
@@ -126,6 +152,8 @@ checkviewFunctionAfterwithdraw = ledgerAfterwithdraw 0 .viewFunction "balance" (
 theMsg (nat 0)
 -}
 
+eqproofcheckviewFunctionwithdraw : checkviewFunctionAfterwithdraw ≡ theMsg (nat 0)
+eqproofcheckviewFunctionwithdraw = refl
 
 
 --------------------------- third test   (attack with 10000)
