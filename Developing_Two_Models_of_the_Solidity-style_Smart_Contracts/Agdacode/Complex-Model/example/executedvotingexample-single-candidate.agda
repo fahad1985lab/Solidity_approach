@@ -50,6 +50,9 @@ evaluate to
 theMsg (nat 5) , 16 gas
 so executing addVoter (nat 5) returned (nat 5)
 -}
+eqproofafterAdd5 : resultReturnedAddVoter5 ≡ theMsg (nat 5) , 16 gas
+eqproofafterAdd5 = refl
+
 
 ledgerAfterAdd5 : Ledger
 ledgerAfterAdd5 = proj₁ resultAfterAddVoter5
@@ -63,7 +66,8 @@ evaluate to
 theMsg (nat 1)
 which means true
 -}
-
+eqprooftocheckVoter5 : checkVoter5afterAdd5 ≡ theMsg (nat 1)
+eqprooftocheckVoter5 = refl
 
 checkVoter3AfterAdd5 : MsgOrError
 checkVoter3AfterAdd5 = ledgerAfterAdd5 1 .viewFunction "checkVoter" (nat 3)
@@ -73,7 +77,8 @@ theMsg (nat 0)
 which means false
 our ledger only includes (nat 5)
 -}
-
+eqprooftocheckVoter3 : checkVoter3AfterAdd5 ≡ theMsg (nat 0)
+eqprooftocheckVoter3 = refl
 
 ----------------------------- Second test   (adding voter)
 -- using function "addVoter" with (nat 3) on ledgerAfterAdd5
@@ -84,6 +89,8 @@ resultAfterAddVoter3 = evaluateTerminatingfinal ledgerAfterAdd5 1 1 1 "addVoter"
 resultReturnedAddVoter3 : MsgOrErrorWithGas
 resultReturnedAddVoter3 = proj₂ resultAfterAddVoter3
 
+eqproofresultafterAdd3 : resultReturnedAddVoter3 ≡ theMsg (nat 3) , 16 gas
+eqproofresultafterAdd3 = refl
 {- evaluates to
 
 theMsg (nat 3) , 16 gas
@@ -99,12 +106,19 @@ checkVoter5afterAdd3 : MsgOrError
 checkVoter5afterAdd3 = ledgerAfterAdd3 1 .viewFunction "checkVoter" (nat 5)
 -- evaluates to
 -- theMsg (nat 1) which means true
+eqproofcheckVoter5afterAdd3 : checkVoter5afterAdd3 ≡ theMsg (nat 1)
+eqproofcheckVoter5afterAdd3 = refl
+
+
 
 -- check the pure function with (nat 3) after adding voter to our ledger
 checkVoter3afterAdd3 : MsgOrError
 checkVoter3afterAdd3 = ledgerAfterAdd3 1 .viewFunction "checkVoter" (nat 3)
 -- evaluates to
 -- theMsg (nat 1) which means true
+eqproofcheckVoter3afterAdd3 : checkVoter3afterAdd3 ≡ theMsg (nat 1)
+eqproofcheckVoter3afterAdd3 = refl
+
 
 -- check the pure function with (nat 2) after adding voter to our ledger
 checkVoter2afterAdd3 : MsgOrError
@@ -117,7 +131,8 @@ checkCounterAfterAdd5 : MsgOrError
 checkCounterAfterAdd5 = ledgerAfterAdd5 1 .viewFunction "counter" (nat 0)
 -- evaluate is
 -- theMsg (nat 0)
-
+eqcheckCounterafterAdd5 : checkCounterAfterAdd5 ≡ theMsg (nat 0)
+eqcheckCounterafterAdd5 = refl
 
 
 ----------------------------- Third test  using "deletevoter"
@@ -135,6 +150,10 @@ theMsg (nat 5) , 16 gas
 
 -}
 
+eqproofresultafterDelete5 : resultReturnedDeleteVoter5 ≡ theMsg (nat 5) , 16 gas
+eqproofresultafterDelete5 = refl
+
+
 ledgerAfterDelete5 : Ledger
 ledgerAfterDelete5 = proj₁ resultAfterDeleteVoter5
 
@@ -145,6 +164,8 @@ checkVoter5afterDelete5 = ledgerAfterDelete5 1 .viewFunction "checkVoter" (nat 5
 -- evaluates to
 -- theMsg (nat 0) which means (nat 5) not in our ledger
 
+eqproofcheck5afterDelete5 : checkVoter5afterDelete5 ≡ theMsg (nat 0)
+eqproofcheck5afterDelete5 = refl
 
 -- check the pure function with (nat 3) after deleting voter (nat 5) from our ledger
 checkVoter3afterDelete5 : MsgOrError
@@ -152,6 +173,8 @@ checkVoter3afterDelete5 = ledgerAfterDelete5 1 .viewFunction "checkVoter" (nat 3
 -- evaluates to
 -- theMsg (nat 1) which means our ledger only have (nat 3)
 
+eqproofcheck3afterDelete5 : checkVoter3afterDelete5 ≡ theMsg (nat 1)
+eqproofcheck3afterDelete5 = refl
 
 
 
@@ -169,6 +192,11 @@ theMsg (nat 8) , 16 gas
 
 -}
 
+eqproofresultAddVoter8 : resultReturnedAddVoter8 ≡ theMsg (nat 8) , 16 gas
+eqproofresultAddVoter8 = refl
+
+
+
 ledgerAfterAdd8 : Ledger
 ledgerAfterAdd8 = proj₁ resultAfterAddVoter8
 
@@ -179,6 +207,8 @@ checkVoter8afterAdd8 = ledgerAfterAdd8 1 .viewFunction "checkVoter" (nat 8)
 -- evaluates to
 -- theMsg (nat 1) which means true
 
+eqproofcheck8afterAdd8 : checkVoter8afterAdd8 ≡ theMsg (nat 1)
+eqproofcheck8afterAdd8 = refl
 
 -- check the pure function with (nat 3) after adding voter to our ledger
 checkVoter3afterAdd8 : MsgOrError
@@ -186,12 +216,20 @@ checkVoter3afterAdd8 = ledgerAfterAdd8 1 .viewFunction "checkVoter" (nat 3)
 -- evaluates to
 -- theMsg (nat 1) which means true
 
+eqproofcheck3afterAdd8 : checkVoter3afterAdd8 ≡ theMsg (nat 1)
+eqproofcheck3afterAdd8 = refl
+
 
 -- check the pure function with (nat 5) after adding voter to our ledger
 checkVoter5afterAdd8 : MsgOrError
 checkVoter5afterAdd8 = ledgerAfterAdd8 1 .viewFunction "checkVoter" (nat 5)
 -- evaluates to
 -- theMsg (nat 0) which means false
+
+eqproofcheck5afterAdd8 : checkVoter5afterAdd8 ≡ theMsg (nat 0)
+eqproofcheck5afterAdd8 = refl
+
+
 
 -- ******** Now our ledger only include (nat 3) and ( nat 8)
 
@@ -211,8 +249,12 @@ resultAfterVote5 = evaluateTerminatingfinal ledgerAfterAdd8 1 5 1 "vote" (nat 0)
 
 resultReturnedVote5 : MsgOrErrorWithGas
 resultReturnedVote5 = proj₂ resultAfterVote5
+
+eqproofresultReturnedVote5 : resultReturnedVote5 ≡ 
+ err (strErr "The voter is not allowed to vote") ⟨ 5 >> 1 ∙ "checkVoter" [ nat 5 ]⟩ , 45 gas
+eqproofresultReturnedVote5 = refl
 -- returns
--- err (strErr "The voter is not allowed to vote") ⟨ 5 >> 1 ∙ "checkVoter" [ nat 5 ]⟩ , 46 gas
+-- err (strErr "The voter is not allowed to vote") ⟨ 5 >> 1 ∙ "checkVoter" [ nat 5 ]⟩ , 45 gas
 -- because 5 is not allowed to vote
 
 ledgerAfterVote5 : Ledger
@@ -225,6 +267,8 @@ checkCounterAfterVote5 = ledgerAfterVote5  1 .viewFunction "counter" (nat 0)
 -- theMsg (nat 0)
 -- so the counter is still zero
 
+eqproofcheckCounterAfterVote5 : checkCounterAfterVote5 ≡ theMsg (nat 0)
+eqproofcheckCounterAfterVote5 = refl
 
 ----------------------------- Sixth test  using "vote" (who is allowed to vote)
 -- using function "vote"
@@ -236,7 +280,11 @@ resultAfterVote3 = evaluateTerminatingfinal ledgerAfterVote5 1 3 1 "vote" (nat 0
 resultReturnedVote3 : MsgOrErrorWithGas
 resultReturnedVote3 = proj₂ resultAfterVote3
 -- evaluates to
--- theMsg (nat 1) , 37 gas
+-- theMsg (nat 1) , 35 gas
+
+eqproofresultReturnedVote3 : resultReturnedVote3 ≡ theMsg (nat 1) , 35 gas
+eqproofresultReturnedVote3 = refl
+
 
 ledgerAfterVote3 : Ledger
 ledgerAfterVote3 = proj₁ resultAfterVote3
@@ -247,7 +295,8 @@ checkVoter3 : MsgOrError
 checkVoter3 = ledgerAfterVote3 1 .viewFunction "checkVoter" (nat 3)
 -- evaluates to
 -- theMsg (nat 0) which means false and can no  longer vote because has voted
-
+eqproofcheckVoter3 : checkVoter3 ≡ theMsg (nat 0)
+eqproofcheckVoter3 = refl
 
 
 -- check the view function with (nat 5) can vote or not
@@ -261,7 +310,8 @@ checkVoter8 : MsgOrError
 checkVoter8 = ledgerAfterVote3 1 .viewFunction "checkVoter" (nat 8)
 -- evaluates to
 -- theMsg (nat 1) which means false and cannot vote
-
+eqproofcheckVoter8 : checkVoter8 ≡ theMsg (nat 1)
+eqproofcheckVoter8 = refl
 
 
 checkCounterAfterVote3 : MsgOrError
@@ -269,3 +319,6 @@ checkCounterAfterVote3 = ledgerAfterVote3 1 .viewFunction "counter" (nat 0)
 -- evaluates to
 -- theMsg (nat 1)
 -- so the counter is have 1
+
+eqproofcheckCounterAfterVote3 : checkCounterAfterVote3 ≡ theMsg (nat 1)
+eqproofcheckCounterAfterVote3 = refl

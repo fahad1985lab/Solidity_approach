@@ -8,7 +8,8 @@ open import Data.Bool.Base
 open import Data.Nat.Base
 open import Data.Maybe hiding (_>>=_)
 open import Data.String hiding (length)
-
+import Relation.Binary.PropositionalEquality as Eq
+open Eq using (_≡_ ; refl ; sym ; cong)
 
 --simple model
 open import Simple-Model.ledgerversion.Ledger-Simple-Model
@@ -79,9 +80,12 @@ testLedger ow .fun ow' ow'' = error (strErr "Undefined")
 -- test cases below
 
 -- test the ledger above
-test : NatOrError
-test = evaluateNonTerminating testLedger 0 0 "f1" (nat 0) 
+checkf1Function : NatOrError
+checkf1Function = evaluateNonTerminating testLedger 0 1 "f1" (nat 0) 
 --return nat 0
+
+--eqprooff1 : evaluateNonTerminating testLedger 0 1 "f1" (nat 0) ≡ nat 0
+--eqprooff1 = {!!}
 
 updatefunctionf1 : NatOrError
 updatefunctionf1 = evaluateNonTerminating testLedger 0 1 "g1" (nat 0)
