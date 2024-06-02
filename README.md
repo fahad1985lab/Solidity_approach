@@ -1,12 +1,12 @@
 # This Git repository contains five Agda codes:
 
-1- Developing Two Models of the Solidity-style Smart Contracts.
+1- Developing Two Models of the Solidity-style Smart Contracts (chapter 6).
 
-2- Simulating Two Models of Solidity-style Smart Contracts.
+2- Simulating Two Models of Solidity-style Smart Contracts (chapter 7).
 
-3- Verifying Solidity-style Smart Contracts.
+3- Verifying Solidity-style Smart Contracts (chapter 8).
 
-4- Implementing the Reentrancy Attack of Solidity in Agda.
+4- Implementing the Reentrancy Attack of Solidity in Agda (chapter 9).
 
 5- Safe Version of the code.
 
@@ -23,7 +23,7 @@
 
 
  ## Authors and Licence
- * A model of Solidity style smart contracts in the theorem prover Agda - by 
+ * By 
  Fahad F. Alhabardi and [Anton Setzer](https://www.cs.swan.ac.uk/~csetzer/).
  
  
