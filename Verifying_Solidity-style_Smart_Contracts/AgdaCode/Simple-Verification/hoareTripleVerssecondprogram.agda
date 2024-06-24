@@ -7,11 +7,11 @@ open import Data.Maybe
 open import Data.Unit  
 open import Data.Empty
 open import Data.Bool  hiding (_≤_ ; if_then_else_ ) renaming (_∧_ to _∧b_ ; _∨_ to _∨b_ ; T to True)
-open import Data.Bool.Base hiding (_≤_ {-; if_then_else_-} ) renaming (_∧_ to _∧b_ ; _∨_ to _∨b_ ; T to True)
+open import Data.Bool.Base hiding (_≤_) renaming (_∧_ to _∧b_ ; _∨_ to _∨b_ ; T to True)
 open import Data.Product renaming (_,_ to _,,_ )
 open import Data.Nat.Base hiding (_≥_ ; _≤_)
 import Relation.Binary.PropositionalEquality as Eq
-open Eq using (_≡_; refl; cong; module ≡-Reasoning; sym)
+open Eq using (_≡_; refl; cong; trans; subst; module ≡-Reasoning; sym)
 open ≡-Reasoning
 open import Agda.Builtin.Equality
 
@@ -24,8 +24,7 @@ open import libraries.hoareTripleLibSimple
 open import libraries.emptyLib
 open import libraries.boolLib
 
-
-
+  
 
 
 --- Second program transfer 10 from address 0 to address 6  
@@ -79,25 +78,38 @@ proofPreTransferaux' : (led1 : Ledger)(10≦led1-0amount : 10 ≦r led1 0 .amoun
 proofPreTransferaux' led1 10≦led1-0amount l s' x eq   rewrite sym eq | x = refl
 
 
+
+
 -- prove first direction (forward direction) for precondition
 proofPreTransfer : < PreTransfer >solpresimplemodel transferSec-Prog < PostTransfer >
 proofPreTransfer  (stateEF led1 .0) s' msg (and (or₁ (and x x₁)) refl) (step tt x₂) with 10 ≦b led1 0 .amount in eq1 
 proofPreTransfer  (stateEF led1 _) s' msg (and (or₁ (and x tt)) refl) (step tt (step tt x₂)) | true  rewrite compareleq3 10 (led1 0 .amount) eq1
-  = let
+ = 
+
+ let
            eq2 : HLState.ledger s' ≡  updateLedgerAmount led1 0 6 10 (transfer≡r atom eq1 tt)
            eq2 = efrelLemLedger' x₂
 
-           eq2b : HLState.ledger s' 6 .amount  ≡  updateLedgerAmount led1 0 6 10 (transfer≡r atom eq1 tt) 6 .amount
-           eq2b = cong'  (λ x → x 6 .amount) eq2
+           eq2bc : HLState.ledger s' 6 .amount  ≡  updateLedgerAmount led1 0 6 10 (transfer≡r atom eq1 tt) 6 .amount
+           eq2bc =
+             begin
+               HLState.ledger s' 6 .amount
+             ≡⟨ cong (λ x → x 6 .amount) eq2 ⟩
+               updateLedgerAmount led1 0 6 10 (transfer≡r atom eq1 tt) 6 .amount
+             ∎
 
            eq3 : updateLedgerAmount led1 0 6 10 (transfer≡r atom eq1 tt) 6 .amount ≡ led1 6 .amount + 10
-           eq3 = updateLedgerAmountLem1 led1 0 6 10 (λ {() }) (atomLemTrue (10 ≦b led1 0 .amount) eq1)
+           eq3 = updateLedgerAmountLem1 led1 0 6 10 (λ {()}) (atomLemTrue (10 ≦b led1 0 .amount) eq1)
 
-           eq4 : HLState.ledger s' 6 .amount ≡ led1 6 .amount + 10
-           eq4 = trans≡ eq2b eq3
-           
-       in and (proofPreTransferaux' led1 (compareleq2 10 (led1 0 .amount) eq1) led1 s' x (sym≡ eq4)) (efrelLemCallingAddr' x₂)
-       
+           eq4 : HLState.ledger s' 6 .amount ≡ led1 6 .amount + 10   -- can be done by equality
+           eq4 =
+             begin
+               HLState.ledger s' 6 .amount
+            ≡⟨ trans eq2bc eq3 ⟩
+               led1 6 .amount + 10
+            ∎                                                                                  
+       in and (proofPreTransferaux' led1 (compareleq2 10 (led1 0 .amount) eq1) led1 s' x (sym eq4)) (efrelLemCallingAddr' x₂)
+      
 proofPreTransfer  (stateEF led1 .0) s' msg (and (or₂ (and x x₃)) refl) (step tt x₂) with 10 ≦b led1 0 .amount
 proofPreTransfer  (stateEF led1 _) (stateEF .led1 .0) msg (and (or₂ (and x x₃)) refl) (step tt (reflex .(stateEF led1 [] 0 0 (return (nat 0))))) | false = and x refl
 proofPreTransfer  (stateEF led1 _) s' msg (and (or₂ (and x x₃)) refl) (step tt (step tt x₂)) | true with (x₃ tt)
@@ -161,4 +173,5 @@ proofPreTransfer-solweakest  (stateEF led1 callingAddress) (stateEF led2 _) msg 
 proofTransfer : < PreTransfer >sol transferSec-Prog < PostTransfer >
 proofTransfer .precond  = proofPreTransfer 
 proofTransfer .weakest  = proofPreTransfer-solweakest 
+
 

@@ -1,3 +1,5 @@
+{-# OPTIONS --no-sized-types --safe #-}
+--{-# OPTIONS --safe #-}
 module basicDataStructure where
 
 open import Data.Nat
