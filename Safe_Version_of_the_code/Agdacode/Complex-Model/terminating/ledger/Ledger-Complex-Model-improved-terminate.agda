@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 open import constantparameters
 
 module Complex-Model.terminating.ledger.Ledger-Complex-Model-improved-terminate (param : ConstantParameters) where

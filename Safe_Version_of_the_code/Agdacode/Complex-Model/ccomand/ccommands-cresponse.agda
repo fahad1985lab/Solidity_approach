@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module Complex-Model.ccomand.ccommands-cresponse where
 
 open import Data.Nat

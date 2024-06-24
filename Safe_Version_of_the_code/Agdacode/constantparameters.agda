@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module constantparameters where
 
 open import Data.Nat

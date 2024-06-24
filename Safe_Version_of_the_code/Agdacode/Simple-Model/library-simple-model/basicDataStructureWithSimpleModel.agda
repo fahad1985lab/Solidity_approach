@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module Simple-Model.library-simple-model.basicDataStructureWithSimpleModel where
 
 open import Data.Nat

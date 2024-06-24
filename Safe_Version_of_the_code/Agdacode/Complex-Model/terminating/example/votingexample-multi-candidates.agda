@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 open import constantparameters
 
 module Complex-Model.terminating.example.votingexample-multi-candidates  where

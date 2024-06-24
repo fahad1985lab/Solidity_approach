@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module Simple-Model.example.solidityToagdaInsimplemodel-counterexample where
 
 open import Data.Nat  hiding (_<_)

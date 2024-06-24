@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module libraries.boolLib where
 
 open import Data.Empty

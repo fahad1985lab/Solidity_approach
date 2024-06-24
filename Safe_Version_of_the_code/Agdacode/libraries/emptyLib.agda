@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module libraries.emptyLib  where
 
 open import Data.Empty

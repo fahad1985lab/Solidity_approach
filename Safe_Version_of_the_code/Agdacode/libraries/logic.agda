@@ -1,4 +1,4 @@
-
+{-# OPTIONS --no-sized-types --safe #-}
 module libraries.logic  where
 
 open import Data.Bool hiding (_∧_ ; _∨_)

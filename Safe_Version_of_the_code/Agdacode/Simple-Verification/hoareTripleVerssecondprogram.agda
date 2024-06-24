@@ -1,3 +1,4 @@
+{-# OPTIONS --no-sized-types --safe #-}
 module Simple-Verification.hoareTripleVerssecondprogram where
 
 open import Data.Nat  hiding (_≥_) renaming (_≤_ to _≤'_ ; _<_ to _<'_)

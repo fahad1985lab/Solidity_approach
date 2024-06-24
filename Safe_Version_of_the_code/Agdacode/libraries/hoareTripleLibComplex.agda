@@ -1,4 +1,4 @@
-
+{-# OPTIONS --no-sized-types --safe #-}
 open import constantparameters
 
 module libraries.hoareTripleLibComplex (param : ConstantParameters) where
